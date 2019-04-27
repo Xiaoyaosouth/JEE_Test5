@@ -44,7 +44,8 @@ public class LoginController {
 				&& password.equals("1234")) {
 			System.out.println("验证成功");
 			mv.addObject("msg", userName);
-			System.out.println(mv.getViewName());
+			mv.setViewName("welcome");
+			//System.out.println(mv.getViewName());
 			return mv;
 		}else {
 			System.out.println("用户名或密码错误");
