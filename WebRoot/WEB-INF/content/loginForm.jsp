@@ -33,7 +33,9 @@
 	</form>
 	实验5：拦截器<p>
 	不加入拦截器时，在地址栏直接输入welcome会直接跳转到welcome.jsp<p>
-	实验5选做：国际化（未解决BUG：中文乱码）
+	加入拦截器后，会跳回loginForm<p>
+	实验5选做：国际化<p>
+	若遇到中文乱码，需在dispatcher-servlet-xml中定义的MessageSource接口添加defaultEncoding<p>
 	实验5选做：文件上传（未做）
 </body>
 </html>
