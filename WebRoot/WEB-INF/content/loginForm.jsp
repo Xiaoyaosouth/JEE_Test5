@@ -12,11 +12,11 @@
 	不加入拦截器时，在地址栏直接输入welcome会直接跳转到welcome.jsp<p>
 	加入拦截器后，会跳回loginForm<p>
 	实验5选做：国际化<p>
-	若遇到中文乱码，需在dispatcher-servlet-xml中定义的MessageSource接口添加defaultEncoding<p>
+	若遇到中文乱码，需在dispatcher-servlet.xml中定义的MessageSource接口添加defaultEncoding<p>
   <!-- 用户可以选择切换语言环境 -->
-  <a href="loginForm?request_locale=zh_CN">中文</a>| <a href="loginForm?request_locale=en_US">English</a>
+  <a href="loginForm?request_locale=zh_CN">中文</a> | <a href="loginForm?request_locale=en_US">English</a>
   <br/>
-  ${msg }<hr/>
+  <hr/>${msg }<hr/>
 	<form action="mylogin" method="post">
 		<table align="center">
 			<caption><spring:message code="userlogin"/></caption>
@@ -36,9 +36,10 @@
 			</tr>
 		</table>
 	</form>
-	注：
+	【注】<p>
 	用户名：admin<p>
 	密码：1234<p>
-	登录成功后才可以进行文件上传。<p>
+	实验5选做：文件上传<p>
+	登录成功后，跳转到welcome.jsp才可以进行文件上传。<p>
 </body>
 </html>

@@ -4,8 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -21,7 +19,8 @@ public class UploadController {
 			String path = request.getSession().getServletContext().getRealPath("/uploads/");
 			// 上传文件名字
 			String filename = uploadfile.getOriginalFilename();
-			File filepath = new File(path + java.io.File.separator + filename);
+			java.io.File filepath = new java.io.File
+					(path + java.io.File.separator + filename);
 			// 判断路径是否存在，如果不存在就创建
 			if(!filepath.getParentFile().exists()) {
 				filepath.getParentFile().mkdirs();

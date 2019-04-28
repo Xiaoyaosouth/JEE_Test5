@@ -37,7 +37,6 @@
 	</mvc:interceptors>
 
 	<!-- 配置视图解析器 -->
-	<!--prefix和suffix：查找视图页面的前缀和后缀（前缀[逻辑视图名]后缀）， 比如传进来的逻辑视图名为WEB-INF/jsp/index，则该jsp视图页面应该存放在WEB-INF/jsp/hello.jsp； -->
 	<bean
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
@@ -57,6 +56,13 @@
 	<!-- 国际化 定义LocaleResolver接口 用于解析国际化-->
 	<bean id="localeResolver"
 	      class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+	
+	<!-- 文件上传 配置视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/content" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 	
 	<!-- 文件上传 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

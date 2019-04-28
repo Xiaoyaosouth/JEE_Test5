@@ -29,18 +29,23 @@ public class AuthorizationInterceptor implements HandlerInterceptor{
 		String servletPath = arg0.getServletPath();
 		if(servletPath.contains("/mylogin")
 				|| servletPath.contains("/loginForm")) {
-			System.out.println("ServletPath Contains mylogin or loginForm!");
+			System.out.println("ServletPath contains [mylogin] or [loginForm]");
+			return true;
+		}
+		if(servletPath.contains("/myupload")) {
+			System.out.println("ServletPath contains [upload]");
 			return true;
 		}
 		String username = (String)arg0.getSession().getAttribute("userName");
 		if(username == null) {
 			arg0.getRequestDispatcher("loginForm").forward(arg0, arg1);
-			System.out.println("Null : The parameters [userName]");
+			System.out.println("返回loginForm，参数[userName]为null");
 			return false;
 		}else {
-			System.out.println("Not Null : The parameters [userName]");
+			System.out.println("允许跳转，参数[userName]不为null");
 			return true;
 		}
+		
 	}
 
 }

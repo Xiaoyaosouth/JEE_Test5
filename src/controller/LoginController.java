@@ -20,7 +20,16 @@ public class LoginController {
 	}
 	*/
 	
-	@RequestMapping(value="/{formName}", method=RequestMethod.GET)
+	/**
+	 * 若写上method=RequestMethod.GET，
+	 * 则文件上传post后会产生405 POST NOT ALLOWED错误。
+	 * @param formName
+	 * @param request_locale
+	 * @param request
+	 * @param mv
+	 * @return
+	 */
+	@RequestMapping(value="/{formName}")
 	public ModelAndView initView(@PathVariable String formName,
 			String request_locale, HttpServletRequest request,
 			ModelAndView mv) {
